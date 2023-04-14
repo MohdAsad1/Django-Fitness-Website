@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+description
+{% endblock title %}
+{% block body %}
+
+<div class="container mt-2">
+<Center><h1>Details</h1></Center>
+<div class="row">
+
+
+{% for post in category %}
+<div class="col-md-4">
+
+    <div class="card">
+        <img src="{{post.img.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h1 class="card-title">{{post.name}}</h1>
+            <h2>EXERCISE DESCRIPTION </h2>
+          <p class="card-text">{{post.description}} </p>
+        </div>
+      </div>
+
+    <div class="card">
+        <h2 class="text-center mt-2 mb-2">Video</h2>
+        <video class="embed-responsive embed-responsive-16by9" controls="controls">
+            <source src="{{post.video.url}}" type="video/mp4"/>
+        </video>
+    </div>
+
+
+
+</div>
+{% endfor %}
+<br>
+<br>
+</div>
+</div>
+
+{% endblock body %}

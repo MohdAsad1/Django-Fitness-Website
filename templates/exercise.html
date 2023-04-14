@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+Exercise
+{% endblock title %}
+{% block body %}
+
+<div class="container mt-2">
+<Center><h1>Exercise</h1></Center>
+<div class="row">
+
+{% for post in category %}
+<div class="col-md-4">
+    <div class="card">
+        <a href="{% url 'description'  id=post.id %}">
+        <img src="{{ MEDIA_URL }}{{post.img.url}}" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h2 class="card-title">{{post.name}}</h2>
+        </div>
+    </div>
+
+</div>
+
+
+{% endfor %}
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+
+{% endblock body %}

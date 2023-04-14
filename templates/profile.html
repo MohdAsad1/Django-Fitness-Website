@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock title %}
+{% block body %}
+
+
+<div class="container">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+
+
+      
+    <h1>Enrollment Details</h1>
+    {% comment %} Contact Us COde  {% endcomment %}
+    {% for post in posts %}
+    
+   
+    <ul class="list-group">
+        <li class="list-group-item bg-warning text-dark"><h5>Name : {{post.full_name}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Email : {{post.email}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Gender : {{post.gender}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>DOB : {{post.date_of_birth}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Membership plan : {{post.select_membership_plan}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Trainer : {{post.select_trainer}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Address : {{post.address}}</h5></li>
+        <li class="list-group-item bg-warning text-dark"><h5>Joining date : {{post.time_stamp}}</h5></li>
+      
+       
+      </ul>
+      {% endfor %}
+    
+    
+
+    
+    </div>
+    
+    <div class="col-md-8">
+
+
+
+
+  
+      
+      <table class="table">
+        <thead class="thead-warning">
+
+        </thead>
+        <tbody>
+
+
+           
+         
+            
+           
+          </tr>
+
+        
+        </tbody>
+      </table>
+    
+    
+    </div>
+    
+    </div>
+
+
+
+
+{% endblock body %}

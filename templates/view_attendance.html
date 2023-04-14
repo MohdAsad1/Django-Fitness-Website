@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock title %}
+{% block body %}
+
+<style>
+  #myInput {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+  }
+  </style>
+
+<hr/>
+<form method="POST">
+ {% csrf_token %}
+<div class="container">
+  <h2>Select Workout you Wants to filter</h2>
+      <div class="dropdown">
+            <select  class="btn btn-primary dropdown-toggle" type="button" name="workout">
+                <option selected> Select workout </option>
+                {% for workout in select_exercise %}
+                <option value="{{workout.id}}" name="workout">{{workout.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+</div>
+From :<input type="date" name="fromdate"/>
+To :<input type="date" name="todate"/>
+<input type="submit" value="Search"/>
+<hr/>
+
+<div class="container">
+        <div><Center><h2 class="display-4 mt-3"><b>Attendance Data</b></h2></Center></div>
+
+  <table class="table">
+    <thead class="thead-warning">
+          <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+            <th scope="col">Login-Time</th>
+            <th scope="col">Logout-Time</th>
+            <th scope="col">Workout</th>
+            <th scope="col">Trained By</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          {% for attend in attendance %}
+          <tr>
+
+            <td>{{attend.user}}</td>
+            <td>{{attend.login_time.date}}</td>
+            <td>{{attend.login_time.time}}</td>
+            <td>{{attend.logout_time.time}}</td>
+            <td>{{attend.work_out}}</td>
+            <td>{{attend.trainer}}</td>
+
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+ </div>
+    </div>
+</form>
+{% endblock body %}
